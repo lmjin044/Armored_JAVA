@@ -71,7 +71,7 @@ public class Study_0626 {
 			Scanner 클래스 객체가 필요
 			Scanner는 내장 외부클래스이므로 import 요소가 필요함
 			Scanner 변수 = new Scanner(System.in);
-				변수.next~? : Int() int 타입 / Byte() byte 타입
+				변수= scan.next~? : Int() int 타입 / Byte() byte 타입
 							 Short() short 타입 / Long() long 타입
 							 	까지는 정수만 입력
 							 Float() float 타입/ Double() double 타입
