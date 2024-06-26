@@ -23,7 +23,7 @@ public class Study_0626_2 {
 		float after = money-loss;
 		
 System.out.println(part+"부서 "+ name+" 사원님의 금월 실 수령액은 "+after+"만원 입니다.");
-		
+		//part를 먼저 했더라도 내가 처음 변수를 name 부터 했기 때문에 입력은 name부터 받는다.
 		
 		
 	}
