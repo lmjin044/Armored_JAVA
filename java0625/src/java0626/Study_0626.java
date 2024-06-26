@@ -81,11 +81,21 @@ public class Study_0626 {
 							 ※'문자' 자체는 입력 못 해!
 							 
 		변수 입출력 문제 할 예정
-		
-	 
 	 */
 	
+	int clan, java, archi;
 	
+	System.out.print("c언어 시험 점수 : ");
+	clan = scan.nextInt();
+	System.out.print("자바시험 점수 : ");
+	java = scan.nextInt();
+	System.out.print("건축학개론 시험 점수 : ");
+	archi = scan.nextInt();
+	
+	int total1 = clan+java+archi;
+	int ava = total1/3;
+	
+	System.out.printf("세 과목의 총점은 %d점이고 평균은 %d점이다.", total1, ava);
 	
 	}
 }
