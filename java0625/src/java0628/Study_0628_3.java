@@ -96,7 +96,7 @@ public class Study_0628_3 {
 		}
 		
 		
-		}if(isDrink) {
+		}if(isDrink) {//참이면 존재하지 않는다는 의미
 			System.out.print("죄송합니다. 준비중 입니다.");
 		
 		
