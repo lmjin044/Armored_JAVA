@@ -89,16 +89,6 @@ public class Study_0628_2 {
 			System.out.println(classB[i]);
 		}
 	이렇게 표현해도 되지만 아래로도 가능하다.
-	*/
-	
-	
-	int[] grade1 = new int[classA.length+classB.length];
-			//a,b 둘다 가지려면 두 배열의 크기를 합치면 된다. 그러므로 grade1의 배열 크기는 6
-	
-	//반복문 없이 메소드를 이용하는 방법도 있다. arrayCopy : 배열을 복사해서 다른 배열에 붙여넣는 기능
-	//물론 같은 타입이여야 가능
-	System.arraycopy(classA, 3, grade1, size, size);
-
 	
 	for(int i=0; i<classA.length; i++) {
 		
@@ -117,7 +107,30 @@ public class Study_0628_2 {
 		
 	}
 	
-
+	*/
+	
+	
+	int[] grade1 = new int[classA.length+classB.length];
+			//a,b 둘다 가지려면 두 배열의 크기를 합치면 된다. (그러므로 grade1의 배열 크기는 6)
+	
+	//반복문 없이 메소드를 이용하는 방법도 있다. arrayCopy : 배열을 복사해서 다른 배열에 붙여넣는 기능!
+	//물론 같은 타입이여야 가능
+	System.arraycopy(classA, 0, grade1, 0, classA.length);
+	System.arraycopy(classB, 0, grade1, 3, classB.length);
+	//괄호 안 설명 : (복사할 배열, 복사를 시작할 인덱스, 저장할 배열, 저장시킬 인덱스, 복사할 데이터 수)
+	//			   ※이때 데이터 수를 숫자로 기입해도 되겠지만 그냥 저렇게 하는게 더 정확하다.
+	
+	
+	for(int i=0; i<grade1.length;i++) {
+		if(grade1[i]>=80)
+			System.out.println(grade1[i]);
+	}
+	
+	Arrays.sort(grade1);//얘는 배열을 정렬하는 목적의 클래스다.
+	System.out.println(Arrays.toString(grade1));
+	
+	boolean same = Arrays.equals(classA, classB);
+	System.out.println("A반, B반 배열이 같은가? : "+same);
 	
 	
 	
