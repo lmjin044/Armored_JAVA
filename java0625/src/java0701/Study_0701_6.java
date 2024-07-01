@@ -10,8 +10,6 @@ String str = "내 이름은 [홍길동]입니다. 나이는 [15]살 입니다.";
 String name;
 int age;
 
-System.out.println(str.lastIndexOf("15"));		
-
 name = str.substring(str.indexOf("[")+1, str.indexOf("]"));
 String temp = str.substring(str.lastIndexOf("[")+1, str.lastIndexOf("]"));
 age = Integer.parseInt(temp);
