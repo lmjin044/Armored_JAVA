@@ -1,6 +1,7 @@
 package java0628;
 
 import java.util.Arrays;
+
 import java.util.Scanner;
 
 public class Study_0628_3 {
