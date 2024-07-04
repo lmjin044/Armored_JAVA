@@ -34,10 +34,10 @@ public class Study_0703_3 {
 	/*출력은 여기서 할 것. 
 	  국어, 영어, 수학 세 과목의 총점과 평균을 구하는 메서드를 '각각' 만들어 출력하시오.
 	 */
-	int sumTest= ret.sumTest();
-	int avaTest= ret.avaTest(tot);
-	System.out.println("총점은 : "+sumTest);
-	System.out.println("평균은 : "+avaTest);
+	//int sumTest= ret.sumTest();
+	//int avaTest= ret.avaTest(int tot);
+	//System.out.println("총점은 : "+sumTest);
+	//System.out.println("평균은 : "+avaTest);
 //-------------------------------------------------	
 /*
  ※과제 : 주사위를 각각 1번씩 굴려 누가 이겼는지를 출력하시오.
