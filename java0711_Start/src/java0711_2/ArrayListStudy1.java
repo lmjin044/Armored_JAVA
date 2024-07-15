@@ -1,6 +1,7 @@
 package java0711_2;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ArrayListStudy1 {
 
@@ -53,11 +54,19 @@ public class ArrayListStudy1 {
 		}
 	}
 	System.out.println(list);
+	//콜렉션에 리스트를 사용하는 경우 ; 
+	//콜렉션에 메서드들을 온전히 사용하려면 필요한 메서드를 클래스에 구현해야 함
+	//필요 메서드는 최상위 부모 클래스(object)가 가지고 있음
+	//컬렉션 관련 인터페이스를 implements하기도 해야 함.
+	
 	
 	Object obj;
 	
 	
-	
+	//정렬 : 
+	//Collections.sort(list);
+	System.out.println("이하 나이별 정렬");
+	list.forEach(m -> System.out.println(m));
 	
 	}
 	

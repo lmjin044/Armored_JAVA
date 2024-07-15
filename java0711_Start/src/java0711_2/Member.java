@@ -17,6 +17,15 @@ public class Member {
 			return name+", "+age+", "+birth;
 		}
 		
+//		@Override
+//		public boolean equals(object o) {
+//			Member tmp = (Member)o;
+//				//어떤 데이터를 비교할 것인지 묻는 내용.
+//			boolean isSame = this.age == tmp.age;
+			//이쪽은 나이 비교 : return this.age == tmp.age;
+			//이쪽연 이름을 비교 : return this.name.equals(tmp.name);
+		//}
+		
 		public String getName() {
 			return name;
 		}
@@ -35,6 +44,9 @@ public class Member {
 		public void setBirth(String birth) {
 			this.birth = birth;
 		}
+		//@Override
+		//public int compareTo(Member o) {
+			//return this.name.compareTo(o.name)
+		}
 		
-		
-}
+//}
