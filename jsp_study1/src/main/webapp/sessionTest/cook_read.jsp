@@ -47,4 +47,27 @@
 	
 	</form>
 </body>
+    <script
+        src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+        crossorigin="anonymous">
+    </script>
+    
+<style>
+	.select{color:red;}
+</style>
+
+<script>
+	$(".selBt").on("click",function(){
+		$(".selBt").each(function(i){
+			$(this).prev().removeClass("select");
+		//prev() = 해당 버튼 태그 앞을 가리키는 용도. 반대는 next()
+		//setBt의 이름으로 태그가 지정된 '선택'
+		});
+		$(this).prev().addClass("select");
+	});
+	
+
+
+</script>
 </html>
