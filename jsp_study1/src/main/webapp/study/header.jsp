@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	String path ="http://localhost:8080/jsp_study_sessionTest/";
+	String path ="http://localhost:8080/jsp_study1/study/";
 
 
 %>    
@@ -11,7 +11,7 @@
 <div id ="header">
 	<div id = "top">
 	
-		<span class="topMenu"><a href="<%=path+"?part=signin"%>"></a>로그인</span>
+		<span class="topMenu"><a href="<%=path+"?part=signin"%>">로그인</a></span>
 		
 		<span class="topMenu">고객센터</span>
 		<span class="topMenu">사이트맵</span>

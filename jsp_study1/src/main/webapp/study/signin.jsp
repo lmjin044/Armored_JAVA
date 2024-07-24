@@ -1,19 +1,26 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
- 
  <link rel="stylesheet" href ="signin.css" >
  
    
 <div id ="signinBox">
 	<form method ="post" action ="signCheck.jsp">
-		<b>아이디</b> : <input type ="text" name ="userId"><br>
-		<b>비밀번호</b> : <input type="text" name="userPassword"><br>
+	<div class="loginInput">
+		<b>아이디</b>
+		<input type ="text" name ="userId"><br>
+	</div>
+	<div class="loginInput">
+		<b>비밀번호</b>
+		<input type="text" name="userPassword"><br>
 		<button id="loginBt">로그인</button>	
+	</div>
 	</form>
 	
+	<div class = "findAndJoin">
 		<p><a href="findUser.jsp"></a>아이디/비밀번호 찾기</p>
-		<p><a href="signup.jsp"></a>회원가입</p>
-	
+		<p><a href="/jsp_study1/study/?part=signup"></a>회원가입</p>
+		
+	</div>
 </div>
 
 <%--
