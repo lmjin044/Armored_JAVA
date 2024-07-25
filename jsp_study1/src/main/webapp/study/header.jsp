@@ -1,3 +1,4 @@
+<%@page import="study.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -10,8 +11,18 @@
     
 <div id ="header">
 	<div id = "top">
-	
-		<span class="topMenu"><a href="<%=path+"?part=signin"%>">로그인</a></span>
+		<%
+			Member user = (Member)session.getAttribute("user");
+			//getAttribute는 오브젝트라서 가져오려면 강제 형변환 필요함 
+			//
+			if(user ==null){
+		%>
+			<span class="topMenu"><a href="<%=path+"?part=signin"%>">로그인</a></span>
+		<%	}else{%>
+			<span class ="topMenu">
+				<%=user.getUserName() %> <a href="logout.jsp">로그아웃</a>
+			</span>
+		<%}%>
 		
 		<span class="topMenu">고객센터</span>
 		<span class="topMenu">사이트맵</span>
@@ -19,11 +30,11 @@
 	<div id = "nav">
 		<div class="logo"></div>
 		<ul class="menuList">
-			<li><a href="<%=path%>"></a>HOME</li>
-			<li><a href="<%=path%>"></a>게시판</li>
-			<li><a href="<%=path%>"></a>자료실</li>
-			<li><a href="<%=path%>"></a>공부방</li>
-			<li><a href="<%=path+"?part=inquiry"%>"></a>문의</li>
+			<li><a href="<%=path%>">HOME</a></li>
+			<li><a href="<%=path+"?part=board"%>">게시판</a></li>
+			<li><a href="<%=path%>">자료실</a></li>
+			<li><a href="<%=path%>">공부방</a></li>
+			<li><a href="<%=path+"?part=inquiry"%>">문의</a></li>
 		</ul>
 	</div>
 
