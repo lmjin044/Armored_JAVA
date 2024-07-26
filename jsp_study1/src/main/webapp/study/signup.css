@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+#signupBox{
+	width:400px;
+	margin:50px auto;
+}
+.joinBox{
+	width:100%;
+}
+.joinInput{
+	width:100%;
+	display:flex;
+	align-items:center;
+	margin-bottom:15px;
+}
+.joinInput label{
+	width:100px;
+	font-size:19px;
+}
+.joinInput input{
+	width:300px;
+	padding-left:10px;
+	height:40px;
+	font-size:17px;
+	border:0;
+	border-bottom:1px solid black;
+}
+
+#joinBt{
+	width:100%;
+	border:0;
+	border-radius:10px;
+	padding:15px 0;
+	font-size:24px;
+	color:white;
+	background:#5f87ff;
+}

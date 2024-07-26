@@ -1,9 +1,7 @@
 @charset "UTF-8";
+@charset "UTF-8";
 
-#inquiryWrap{
-	width:600px;
-	margin:70px auto;
-}
+
 #writeBox{
 	border:1px solid #aaa;
 	border-radius:10px;
