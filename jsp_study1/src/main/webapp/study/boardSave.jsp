@@ -19,7 +19,7 @@ String writer = ((Member)session.getAttribute("user")).getUserId();
 	String title = null;
 	String content = null;
 	String imgName =null;
-	String imgPath = "/jsp_study1/study/image";
+	String imgPath = "/jsp_study1/study/image/";
 	try{
 		MultipartRequest mr = new MultipartRequest(request, path, size, "utf-8", 
 				new DefaultFileRenamePolicy());

@@ -1,3 +1,6 @@
+<%@page import="study.board"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="study.DBconnect"%>
 <%@page import="study.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -17,13 +20,37 @@
 					<th class="hit">조회수</th>
 				</tr>
 				<%
-					for(int i=0; i<=0; i++){
+				DBconnect db = new DBconnect();
+				String sql = "select * from board order by board_id desc";
+				
+				ArrayList<board> list = new ArrayList<>();		
+
+				try{
+					db.pt = db.conn.prepareStatement(sql);
+					db.rs = db.pt.executeQuery();
+					while(db.rs.next()){
+						list.add(
+							new board(db.rs.getInt("board_id"), db.rs.getString("title"), db.rs.getString("writer"),
+									   db.rs.getString("content"), db.rs.getInt("hit"))
+							);
+						
+					}
+				}catch(Exception e){
+					e.printStackTrace();
+					System.out.println("board 테이블 조회 실패");
+				}
+					
+				
+					for(board row : list){
 				%>
 				<tr>
-					<td class="num"></td>
-					<td class="title"></td>
-					<td class="writer"></td>
-					<td class="hit"></td>
+					<td class="num"><%=row.getBoard_id() %></td>
+					<td class="title">
+						<a href ="?part=view&id=<%=row.getBoard_id() %>"> <%=row.getTitle() %></a>
+					</td>
+					<!-- 파라미터와 파라미터를 구별하기 위해서는 &연산자를 사용한다. -->
+					<td class="writer"><%=row.getWriter() %></td>
+					<td class="hit"><%=row.getHit() %></td>
 				</tr>
 				<% } %>
 				
