@@ -6,8 +6,10 @@
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <c:set var="num" value="10" />
 
+<a href="/main.jsp">로그인 및 회원가입</a>
+<a href="/board.jsp">게시판</a> 
+<a href="/inquiry">문의</a> 
 ${num+20 }
-
 
 <%--
 
@@ -115,9 +117,12 @@ core 태그 조건문
 	 예시2 - 회원가입시 등록한 정보로 로그인 하는 경우.
 	 	1)로그인 요청을 Controller가 받음.
 	 	2)로그인 처리를 할 수 있는 Service 실행.
-	
 
- --%>
+ 
+ 
+ jsp에서 페이지 주소를 변경하는 방법.
+ 1) <jsp:forward page ="" />
+ 2)page.Context.forward("경로"와 기능이 유사함 --%>
     
 <!DOCTYPE html>
 <html>
