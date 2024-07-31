@@ -20,7 +20,7 @@ public class DBconnect {
 	private void connect() {
 		String user="burnout";
 		String password="1234";
-		String url="jdbc:mysql://localhost:3606/burnout";
+		String url="jdbc:mysql://localhost:3306/burnout";
 		
 		try {
 			Class.forName("com.mysql.cj.jdbc.Driver");

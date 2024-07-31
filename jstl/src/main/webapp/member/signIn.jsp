@@ -9,7 +9,7 @@
 <body>
 <h2>로그인화면</h2>
 <div id ="signinBox">
-	<form id="signFm" method ="post" action ="signCheck.jsp">
+	<form id="signFm" method ="post" action ="/signInCheck.do">
 	<div class="loginInput">
 		<b>아이디</b>
 		<input type ="text" name ="userId" id="userId"><br>
@@ -21,7 +21,7 @@
 		<p class ="error"></p>
 	</div>	
 	
-		<button id="loginBt" type="button">로그인</button>	
+		<button id="loginBt">로그인</button>	
 	
 	</form>
 	
