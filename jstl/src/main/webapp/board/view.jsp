@@ -8,5 +8,27 @@
 </head>
 <body>
 
+<table>
+	<tr>
+		<td>제목</td>
+		<td>${board.title }</td>
+	</tr>
+	<tr>
+		<td>조회수</td>
+		<td>${board.hit }</td>
+	</tr>
+	<tr>
+		<td>작성자</td>
+		<td>${board.writer }</td>
+	</tr>
+	<tr>
+		<td>내용</td>
+		<td>${board.content }</td>
+	</tr>
+	<tr>
+		<td colspan ='2'></td>
+	</tr>	
+</table>
+
 </body>
 </html>
