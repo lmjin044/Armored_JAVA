@@ -7,7 +7,8 @@
 <body>
 <h2>회원가입</h2>
 <div id="signupBox">
-	<form method="post" action="/signUpSave.do">
+	<form id="signFm" method="post" action="/signUpSave.do">
+	<input type="hidden" name="preURL" id="preURL">
 		<div class="joinInput">
 			<lable>아이디</lable>
 			<input type="text" name="userId" placeholder="아이디 입력">
@@ -33,4 +34,9 @@
 
 </div>   
 </body>
+<script>
+	document.getElementById("preURL").value = document.referrer;
+	//document.referrer는 이전페이지임
+</script>
+
 </html>

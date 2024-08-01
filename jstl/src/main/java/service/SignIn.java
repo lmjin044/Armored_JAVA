@@ -11,13 +11,17 @@ public class SignIn implements MainActive {
 
 	@Override
 	public String action(HttpServletRequest request, HttpServletResponse response){
+		
+		String view="/";
+		
 		if(request.getSession().getAttribute("user")!=null) {
 			request.getSession().removeAttribute("user");
 			//여기에 해당되면 로그인 상태인 것으로, 로그인 상태일 때 user세션을 삭제하겠다.
 		}else {//아니니까 로그인 상태로 하겠다.
 			String id = request.getParameter("userId");
 			String pw = request.getParameter("userPassword");
-		
+			view = request.getParameter("preURL");
+			
 			MemberDAO dao=new MemberDAO();
 			boolean isSuccess = dao.login(id,pw);
 			if(isSuccess) {
@@ -26,7 +30,7 @@ public class SignIn implements MainActive {
 		}
 		
 		try {
-			response.sendRedirect("/");
+			response.sendRedirect(view);
 		} catch (IOException e) {
 			e.printStackTrace();
 			System.out.println(" ");
