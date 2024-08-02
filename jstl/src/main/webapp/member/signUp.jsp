@@ -54,9 +54,11 @@
 		if(IdList.indexOf(id) == -1){
 			$(".duplicate").text("사용가능한 아이디입니다.");
 			$(".duplicate").css("color","green");
+			$("#joinBt").attr("disabled",false);
 		}else{
 			$(".duplicate").text("이미 사용중인 아이디입니다.");
 			$(".duplicate").css("color","red");
+			$("#joinBt").attr("disabled",true)
 		}
 	});
 </script>
