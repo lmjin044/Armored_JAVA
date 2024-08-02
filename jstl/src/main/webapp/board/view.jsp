@@ -59,20 +59,29 @@
 				</td>
 			</tr>
 		</c:if>
+		<c:forEach var ="row" items='${comments }'>
 		<tr>
-			<td></td>
-			<td></td>
+			<td>${row.writer } <br> ${row.writeDate }
+				<br>
+				<c:if test="${sessionScope.user eq row.writer }">
+					<a href ="/commentDelete.do?id=${row.commentId }">삭제</a>
+				</c:if>	
+			</td>
+			
+			<td>${row.comment }</td>
 		</tr>
+		</c:forEach>
 	</table>
 	
 </body>
 </html>
 
 <script>
-	${"#commentBt"}.on("click", function(){//등록 버튼을 클릭하면 아래와 같은 폼태그를 형성
+	$("#commentBt").on("click", function(){//등록 버튼을 클릭하면 아래와 같은 폼태그를 형성
 		let $fm=$('<form></form>');//폼태그 생성
 			$fm.attr('method', 'get');	//방식 지정
-			$fm.attr('action', '/commnet.do');	//경로 지정
+			$fm.attr('action', '/comment.do');	//경로 지정
+			$fm.append("<input type=hidden name=boardId value=${board.board_id}>");
 			$fm.append($('#comment'));	//id가 comment인 댓글창에 반영
 			$fm.appendTo("body");		//body태그로 전송
 			$fm.submit();	//전송

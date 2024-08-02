@@ -125,22 +125,19 @@ public class BoardDAO extends DBconnect{
 	}
 
 	public void update(BoardDTO dto) {
-		//수정한 게시글 내용의 반영
-		String sql="update board set title=?, content=? where board_id=?";
-			//board 내에서 board_id가 ?인 값의 제목과 내용을 업데이트해라. 
-		try {
-			pt=conn.prepareStatement(sql);
-			pt.setString(1, dto.getTitle());
-			pt.setString(2, dto.getContent());
-			pt.setInt(3, dto.getBoard_id());
-			pt.executeUpdate();
-			
-		}catch(SQLException e) {
-			System.out.println("게시글 수정 실패");
-			e.printStackTrace();
-		}
-		
-		
+	    String sql = "update board set title = ?, content = ? where board_id = ?";
+
+	    try {
+	        pt = conn.prepareStatement(sql);
+	        pt.setString(1, dto.getTitle());
+	        pt.setString(2, dto.getContent());   // content를 올바른 위치에 설정
+	        pt.setInt(3, dto.getBoard_id());
+
+	        pt.executeUpdate();
+	    } catch (SQLException e) {
+	        System.out.println("게시글 수정 실패");
+	        e.printStackTrace();
+	    }
 	}
 
 
