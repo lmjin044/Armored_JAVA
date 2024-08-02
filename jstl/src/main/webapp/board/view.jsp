@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>    
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,7 +28,14 @@
 		<td>${board.content }</td>
 	</tr>
 	<tr>
-		<td colspan ='2'></td>
+		<td colspan ='2'>
+			<c:if test="${sessionScope.user eq board.writer }">
+				<button type = "button" id="modify">수정</button>
+				<button type = "button" id="delete">삭제</button>
+			</c:if>
+		
+		</td>
+			
 	</tr>	
 </table>
 

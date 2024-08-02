@@ -20,6 +20,7 @@ public class BoardWrite implements MainActive {
 			//제목, 작성자, 내용 순으로 board 클래스 짜논거 틀리지 마라
 			BoardDAO dao = new BoardDAO();
 			dao.save(dto);
+			try { response.sendRedirect("/board.do"); }catch(Exception e) {}
 			return null;
 		}else {	//게시글 작성페이지를 요청한 경우
 			return "board/boardWrite.jsp";

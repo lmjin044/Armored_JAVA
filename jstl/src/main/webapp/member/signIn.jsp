@@ -35,3 +35,8 @@
 
 </body>
 </html>
+
+<script>
+	document.getElementById("preURL").value=document.referrer;
+
+</script>

@@ -9,7 +9,6 @@ public class BoardDTO extends DBconnect{
 	private String content;
 	private int hit;
 	
-	public BoardDTO() {}
 	public BoardDTO(String title, String writer, String content) {
 		this.title=title;
 		this.writer=writer;

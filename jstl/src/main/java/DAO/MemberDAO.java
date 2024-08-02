@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 import DTO.MemberDTO;
 
@@ -53,5 +54,21 @@ public boolean login(String id, String pw) {
 			System.out.println("회원가입 member테이블 저장 실패");
 			e.printStackTrace();
 		}
+	}
+	public List<String> findAllUserId() {
+		String sql = "select user_id from member";
+			//멤버 테이블에 있는 user_id 컬럼을 가져온다.
+		List<String> list = new ArrayList<>();
+		try {
+			pt=conn.prepareStatement(sql);
+			rs=pt.executeQuery();
+			while(rs.next()) {
+				list.add(rs.getString("user_id"));
+			}
+		}catch(SQLException e) {
+			System.out.println("전체 아이디 조회 실패");
+			e.printStackTrace();
+		}
+		return null;
 	}
 }

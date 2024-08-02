@@ -8,6 +8,27 @@ import DTO.BoardDTO;
 
 public class BoardDAO extends DBconnect{
 	
+	public BoardDTO findById(int bid){//게시글 상세 페이지
+		String sql="select * from board where board_id=?";
+			
+		try {
+			pt=conn.prepareStatement(sql);
+			pt.setInt(1, bid);	
+				//board_id 컬럼 내 데이터를 조회하기 위함
+				//board_id는 int 타입이니까 setInt임.
+			rs=pt.executeQuery();
+			if(rs.next()) {
+				return new BoardDTO(
+						rs.getInt(1), rs.getString(2), rs.getString(4),
+						rs.getString(3), rs.getInt(5));
+			}
+		}catch(SQLException e) {
+			e.printStackTrace();
+			System.out.println("게시글 상세 데이터조회 실패");
+		}
+		return null;
+	}
+	
 	public int totalCount(String keyWord) {
 		//게시글 총 갯수를 구할 메서드
 		keyWord = "%"+keyWord+"%";
@@ -37,7 +58,7 @@ public class BoardDAO extends DBconnect{
 		keyWord = "%"+keyWord+"%";
 		
 		//우리 데이터베이스는 mysql이야... 잊지마
-		String sql = "select * from board where title like ? or content like ? order by board_id desc limit 0, 10";
+		String sql = "select * from board where title like ? or content like ? order by board_id desc limit ?, 10";
 		//sql이라는 변수명으로 board의 board_id 기준으로 내림차순 정렬하겠다.
 		List<BoardDTO> list = new ArrayList<>();
 		try {
@@ -70,8 +91,8 @@ public class BoardDAO extends DBconnect{
 		try {
 			db.pt=db.conn.prepareStatement(sql);
 			db.pt.setString(1, board.getTitle());
-			db.pt.setString(2, board.getContent());
-			db.pt.setString(3, board.getWriter());
+			db.pt.setString(2, board.getWriter());
+			db.pt.setString(3, board.getContent());
 			db.pt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -80,4 +101,10 @@ public class BoardDAO extends DBconnect{
 		
 
 	}
-}
+
+
+
+
+
+	}
+

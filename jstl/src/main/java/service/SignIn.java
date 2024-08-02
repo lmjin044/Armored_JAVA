@@ -1,7 +1,5 @@
 package service;
 
-import java.io.IOException;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,36 +8,30 @@ import DAO.MemberDAO;
 public class SignIn implements MainActive {
 
 	@Override
-	public String action(HttpServletRequest request, HttpServletResponse response){
+	public String action(HttpServletRequest request, HttpServletResponse response) {
 		
 		String view="/";
 		
-		if(request.getSession().getAttribute("user")!=null) {
-			request.getSession().removeAttribute("user");
-			//여기에 해당되면 로그인 상태인 것으로, 로그인 상태일 때 user세션을 삭제하겠다.
-		}else {//아니니까 로그인 상태로 하겠다.
+		if(request.getSession().getAttribute("user") != null) { // 로그인중 상태일경우
+			request.getSession().removeAttribute("user"); //user세션 삭제
+		}else { // 로그인 시도
 			String id = request.getParameter("userId");
 			String pw = request.getParameter("userPassword");
 			view = request.getParameter("preURL");
 			
-			MemberDAO dao=new MemberDAO();
-			boolean isSuccess = dao.login(id,pw);
-			if(isSuccess) {
+			// 데이터베이스에서 아이디 비번 조회 하기
+			MemberDAO dao = new MemberDAO();
+			boolean isSuccess = dao.login(id, pw);
+			if( isSuccess ) { // 아이디 비번이 데이터베이스에 존재한다면
 				request.getSession().setAttribute("user", id);
 			}
 		}
 		
 		try {
 			response.sendRedirect(view);
-		} catch (IOException e) {
-			e.printStackTrace();
-			System.out.println(" ");
-		}
-
+		}catch(Exception e) {  }
+		
 		return null;
 	}
 
-
-
 }
-
