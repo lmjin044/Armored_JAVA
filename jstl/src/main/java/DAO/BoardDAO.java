@@ -19,8 +19,11 @@ public class BoardDAO extends DBconnect{
 			rs=pt.executeQuery();
 			if(rs.next()) {
 				return new BoardDTO(
-						rs.getInt(1), rs.getString(2), rs.getString(4),
-						rs.getString(3), rs.getInt(5));
+						rs.getInt("board_id"),
+						rs.getString("title"), 
+						rs.getString("writer"),
+						rs.getString("content"), 
+						rs.getInt("hit"));
 			}
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -68,7 +71,13 @@ public class BoardDAO extends DBconnect{
 			pt.setInt(3,row);
 			rs=pt.executeQuery();
 			while(rs.next() ) {
-				list.add(new BoardDTO(rs.getInt("board_id"), rs.getString("title"), rs.getString("content"), rs.getString("writer"), rs.getInt("hit")));
+				list.add(
+						new BoardDTO(
+								rs.getInt("board_id"), 
+								rs.getString("title"), 
+								rs.getString("writer"), 
+								rs.getString("content"), 
+								rs.getInt("hit")));
 			}
 			
 		}catch(SQLException e) {
@@ -85,15 +94,13 @@ public class BoardDAO extends DBconnect{
 	public void save(BoardDTO board) {
 	
 		String sql = "insert into board(title, writer, content) values(?,?,?)";
-		
-		DBconnect db = new DBconnect();
-		
+				
 		try {
-			db.pt=db.conn.prepareStatement(sql);
-			db.pt.setString(1, board.getTitle());
-			db.pt.setString(2, board.getWriter());
-			db.pt.setString(3, board.getContent());
-			db.pt.executeUpdate();
+			pt=conn.prepareStatement(sql);
+			pt.setString(1, board.getTitle());
+			pt.setString(2, board.getWriter());
+			pt.setString(3, board.getContent());
+			pt.executeUpdate();
 		}catch(SQLException e) {
 			e.printStackTrace();
 			System.out.println("게시글 저장 실패");
@@ -102,9 +109,43 @@ public class BoardDAO extends DBconnect{
 
 	}
 
-
-
-
-
+	public void delete(int bid) {
+		//게시글
+		String sql = "delete from board where board_id=?";
+		
+		try {
+			pt = conn.prepareStatement(sql);
+			pt.setInt(1, bid);
+			pt.executeUpdate();
+		}catch(SQLException e) {
+			System.out.println("게시물 삭제 실패");
+			e.printStackTrace();
+		}
+		
 	}
+
+	public void update(BoardDTO dto) {
+		//수정한 게시글 내용의 반영
+		String sql="update board set title=?, content=? where board_id=?";
+			//board 내에서 board_id가 ?인 값의 제목과 내용을 업데이트해라. 
+		try {
+			pt=conn.prepareStatement(sql);
+			pt.setString(1, dto.getTitle());
+			pt.setString(2, dto.getContent());
+			pt.setInt(3, dto.getBoard_id());
+			pt.executeUpdate();
+			
+		}catch(SQLException e) {
+			System.out.println("게시글 수정 실패");
+			e.printStackTrace();
+		}
+		
+		
+	}
+
+
+
+
+
+}
 

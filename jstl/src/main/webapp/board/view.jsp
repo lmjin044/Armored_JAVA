@@ -16,7 +16,7 @@
 
 </head>
 <body>
-
+<a href="/board.do">게시판 목록</a>
 <table>
 	<tr>
 		<td>제목</td>
@@ -45,12 +45,40 @@
 			
 	</tr>	
 </table>
-
+	<hr>
+	<!-- 댓글다는 공간 -->
+	<table>
+		<c:if test ='${sessionScope.user != null }'>
+			<!-- 로그인 해야 보이는 댓글창과 등록 버튼 -->
+			<tr>
+				<td>
+					<textarea id = "comment" name="comment" rows=3 cols=30></textarea>
+				</td>
+				<td>
+					<button id="commentBt">입력</button>
+				</td>
+			</tr>
+		</c:if>
+		<tr>
+			<td></td>
+			<td></td>
+		</tr>
+	</table>
+	
 </body>
 </html>
 
 <script>
-	$("#modify").on("click",function(){
+	${"#commentBt"}.on("click", function(){//등록 버튼을 클릭하면 아래와 같은 폼태그를 형성
+		let $fm=$('<form></form>');//폼태그 생성
+			$fm.attr('method', 'get');	//방식 지정
+			$fm.attr('action', '/commnet.do');	//경로 지정
+			$fm.append($('#comment'));	//id가 comment인 댓글창에 반영
+			$fm.appendTo("body");		//body태그로 전송
+			$fm.submit();	//전송
+	});
+
+	$("#modify").on("click", function(){
 		location.href="/boardUpdate.do?id=${board.board_id}";
 	} );
 	
@@ -61,6 +89,6 @@
 		if(isOk){
 			location.href="/boardDelete.do?id=${board.board_id}";
 		}
-	})
+	});
 
 </script>
