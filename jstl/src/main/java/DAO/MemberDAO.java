@@ -69,6 +69,6 @@ public boolean login(String id, String pw) {
 			System.out.println("전체 아이디 조회 실패");
 			e.printStackTrace();
 		}
-		return null;
+		return list;
 	}
 }
